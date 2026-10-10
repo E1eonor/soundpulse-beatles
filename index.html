@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundPulse - The Beatles Edition</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121212">
+    <link rel="apple-touch-icon" href="Icon/The_Beatles_Abbey_Road_album_cover.jpg">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Topbar estilo Spotify Web Player -->
+    <header class="music-header">
+        <div class="header-left">
+            <div class="music-logo">
+                <span class="logo-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                    </svg>
+                </span>
+                <span class="logo-text">SoundPulse</span>
+            </div>
+        </div>
+
+        <!-- Navegación Central -->
+        <nav class="header-center">
+            <a href="#" class="nav-item active">🏠 Inicio</a>
+            <a href="#" class="nav-item">📚 Mi Biblioteca</a>
+        </nav>
+
+        <!-- Acciones Derecha -->
+        <div class="header-right">
+            <span id="net-status" class="status-indicator online" title="Estado de conexión">
+                <span class="dot"></span> En línea
+            </span>
+            <button id="btn-notify" class="spotify-btn">
+                <span class="icon">🔔</span> Notificaciones
+            </button>
+            <div class="profile-avatar">B</div>
+        </div>
+    </header>
+
+    <main class="app-container">
+
+        <!-- Reproductor Principal -->
+        <section class="player-card">
+            <div class="album-art" id="album-art"></div>
+
+            <div class="track-info">
+                <h2 id="track-title">Cargando canción...</h2>
+                <p id="track-artist">The Beatles</p>
+            </div>
+
+            <!-- Barra de Progreso -->
+            <div class="progress-container">
+                <span id="current-time">0:00</span>
+                <input type="range" id="progress-bar" value="0" min="0" max="100">
+                <span id="duration-time">0:00</span>
+            </div>
+
+            <!-- Controles -->
+            <div class="player-controls">
+                <button id="btn-prev" class="ctrl-btn">⏮</button>
+                <button id="btn-play" class="ctrl-btn main-play">▶</button>
+                <button id="btn-next" class="ctrl-btn">⏭</button>
+            </div>
+
+            <audio id="audio-player"></audio>
+        </section>
+
+        <!-- Subir Canciones Locales -->
+        <section class="add-section">
+            <h3>+ Cargar Música Local (.mp3)</h3>
+            <label for="file-input" class="file-label">
+                📂 Seleccionar archivos de audio
+            </label>
+            <input type="file" id="file-input" accept="audio/*" multiple style="display:none;">
+        </section>
+
+        <!-- Lista de Reproducción -->
+        <section class="playlist-section">
+            <h3>DISCOGRAFÍA & PLAYLIST</h3>
+            <ul id="playlist" class="playlist-grid"></ul>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
